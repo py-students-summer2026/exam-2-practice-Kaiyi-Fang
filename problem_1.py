@@ -25,7 +25,40 @@ def get_valid_day():
     :returns: The day the user entered, as an integer.  I.e., 1 for Monday, 2 for Tuesday, 3 for Wednesday etc.
     """
     # write your code below this line
-
+    days = {
+        "monday": 1,
+        "mon": 1,
+        "tuesday": 2,
+        "tues": 2,
+        "wednesday": 3,
+        "weds": 3,
+        "thursday": 4,
+        "thurs": 4,
+        "friday": 5,
+        "fri": 5,
+        "saturday": 6,
+        "sat": 6,
+        "sunday": 7,
+        "sun": 7
+    }
+    while True:
+        try:
+            answer = input("Enter a day: ")
+            lower_answer = answer.lower()
+            if lower_answer in days:
+                return days[lower_answer]
+            day_number = int(answer)
+            if day_number >= 1 and day_number <= 7:
+                return day_number
+            else:
+                print("Invalid number!")
+        except ValueError:
+            if answer.isalpha():
+                print("Invalid day!")
+            else:
+                print("Huh!")
+        except:
+            print("Huh!")
 
 # -------------------------------------- #
 # Do not modify the code below this line #

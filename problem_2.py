@@ -46,6 +46,26 @@ def encode(filepath):
         "fair": "exceedingly generous",
     }
     # write your code below this line
+    try:
+        f = open(filepath, "r")
+        text = f.read()
+        f.close()
+        change_count = 0
+        dictionary_keys = list(swaps.keys())
+        for i in range(len(dictionary_keys)):
+            word = dictionary_keys[i]
+            if word in text:
+                text = text.replace(word,swaps[word])
+                change_count = change_count + 1
+        f2 = open(filepath, "w")
+        f2.write(text)
+        f2.close()
+        if change_count > 0:
+            return True
+        else:
+            return False
+    except:
+        return False
 
 
 # -------------------------------------- #
